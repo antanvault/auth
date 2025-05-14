@@ -1,0 +1,50 @@
+version: '3'
+services:
+  auth1:
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: auth1
+    env_file:
+      - .env
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/usr/src/auth            # Local files into container
+    command: npm start
+    networks:
+      - app-network
+
+  auth2:
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: auth2
+    env_file:
+      - .env
+    ports:
+      - "4001:4000"
+    volumes:
+      - .:/usr/src/auth            # Local files into container
+    command: npm start
+    networks:
+      - app-network
+
+  auth3:
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: auth3
+    env_file:
+      - .env
+    ports:
+      - "4002:4000"
+    volumes:
+      - .:/usr/src/auth            # Local files into container
+    command: npm start
+    networks:
+      - app-network
+  
