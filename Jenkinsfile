@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('checkout') {
+    stage('check') {
       steps {
         git(url: 'https://github.com/antanvault/auth.git', branch: 'main')
       }
